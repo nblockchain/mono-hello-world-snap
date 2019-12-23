@@ -33,6 +33,7 @@ parts:
       - cli-common-dev
       - mono-devel
     plugin: make
+    source: .
 
   wrapper:
     plugin: dump
