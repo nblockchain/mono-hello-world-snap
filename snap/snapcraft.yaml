@@ -11,6 +11,10 @@ description: |
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict
 
+layout:
+  /etc/ssl/certs:
+    bind: $SNAP/etc/ssl/certs
+
 apps:
   hello:
     command: sh $SNAP/usr/bin/mono-wrapper $SNAP/usr/bin/mono $SNAP/usr/lib/hello/hello-world.exe
