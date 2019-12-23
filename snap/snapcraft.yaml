@@ -21,6 +21,8 @@ parts:
     stage-packages:
       - libmono-system4.0-cil
       - mono-runtime
+      - ca-certificates-mono
+      - ca-certificates
     build-packages:
       - build-essential
       - pkg-config
