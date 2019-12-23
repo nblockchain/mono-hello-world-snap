@@ -8,7 +8,7 @@ public static class Program
         Console.WriteLine("Hello, world!");
 
         using (var wc = new WebClient()) {
-            var content = wc.DownloadString("https://httpvshttps.com/");
+            var content = wc.DownloadString("https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt");
             Console.WriteLine(content);
         }
 
