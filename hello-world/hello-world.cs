@@ -8,7 +8,7 @@ public static class Program
         Console.WriteLine("Hello, world!");
 
         using (var wc = new WebClient()) {
-            var content = wc.DownloadString("http://httpvshttps.com/");
+            var content = wc.DownloadString("https://httpvshttps.com/");
             Console.WriteLine(content);
         }
 
