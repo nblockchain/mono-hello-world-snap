@@ -9,17 +9,4 @@ jobs:
     - uses: actions/checkout@v1
     - name: Build and test snap
       run: |
-        sudo apt install -y snapd
-        sudo snap install --classic snapcraft
-
-        # workaround for latest version of snapcraft to work on GithubActions/AzureDevOps
-        sudo chown root:root /
-
-        snap --version
-        snapcraft --version
-
-        snapcraft --destructive-mode
-
-        sudo snap install --dangerous monocurl_0.1_amd64.snap
-        mono stage/usr/lib/monocurl/monocurl.exe https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
-        snap run monocurl https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+        ./ci.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
