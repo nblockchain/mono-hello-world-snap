@@ -20,6 +20,6 @@ jobs:
 
         snapcraft --destructive-mode
 
-        sudo snap install --dangerous hello_0.1_amd64.snap
-        mono stage/usr/lib/hello/hello-world.exe
-        snap run hello
+        sudo snap install --dangerous monocurl_0.1_amd64.snap
+        mono stage/usr/lib/monocurl/monocurl.exe https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+        snap run monocurl https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt

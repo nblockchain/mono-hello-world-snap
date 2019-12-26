@@ -1,9 +1,9 @@
 all:
-	make -C hello-world all
+	make -C src all
 
 install: all
-	mkdir -p $(DESTDIR)/usr/lib/hello
-	cp hello-world/bin/clr/hello-world.exe $(DESTDIR)/usr/lib/hello
+	mkdir -p $(DESTDIR)/usr/lib/monocurl
+	cp src/bin/clr/monocurl.exe $(DESTDIR)/usr/lib/monocurl
 
 clean:
-	make -C hello-world clean
+	make -C src clean
