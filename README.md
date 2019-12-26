@@ -1,6 +1,6 @@
 # Mono "hello world" snappy package
 
-[![Build Status](https://travis-ci.org/jonathanvdc/mono-hello-world-snap.svg?branch=master)](https://travis-ci.org/jonathanvdc/mono-hello-world-snap)
+[![CI status](https://github.com/nblockchain/mono-hello-world-snap/workflows/ubuntu/badge.svg)](https://github.com/nblockchain/mono-hello-world-snap/commits/master)
 
 This is a snappy package for a simple C# "hello world" application, based on David Paskevic's [Pinta snap](https://github.com/casept/snap-pinta).
 
