@@ -3,7 +3,64 @@ name: ubuntu
 on: [push]
 
 jobs:
-  http_outside_sandbox:
+  stockmono_http_outside_sandbox:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: HTTP
+      run: |
+        ./downgrade_mono.sh
+        ./build_and_run.sh http://httpvshttps.com/
+
+  stockmono_http_inside_snap:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: HTTP_SNAP
+      run: |
+        ./downgrade_mono.sh
+        ./build_snap.sh
+        ./run_snap.sh http://httpvshttps.com/
+
+  stockmono_oldhttps_outside_sandbox:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: oldHTTPS
+      run: |
+        ./downgrade_mono.sh
+        ./build_and_run.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+
+  stockmono_oldhttps_inside_snap:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: oldHTTPS_SNAP
+      run: |
+        ./downgrade_mono.sh
+        ./build_snap.sh
+        ./run_snap.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+
+  stockmono_newhttps_outside_sandbox:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: newHTTPS
+      run: |
+        ./downgrade_mono.sh
+        ./build_and_run.sh https://httpvshttps.com/
+
+  stockmono_newhttps_inside_snap:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: newHTTPS_SNAP
+      run: |
+        ./downgrade_mono.sh
+        ./build_snap.sh
+        ./run_snap.sh https://httpvshttps.com/
+
+  newmono_http_outside_sandbox:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
@@ -11,7 +68,7 @@ jobs:
       run: |
         ./build_and_run.sh http://httpvshttps.com/
 
-  http_inside_snap:
+  newmono_http_inside_snap:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
@@ -20,7 +77,7 @@ jobs:
         ./build_snap.sh
         ./run_snap.sh http://httpvshttps.com/
 
-  oldhttps_outside_sandbox:
+  newmono_oldhttps_outside_sandbox:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
@@ -28,7 +85,7 @@ jobs:
       run: |
         ./build_and_run.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
 
-  oldhttps_inside_snap:
+  newmono_oldhttps_inside_snap:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
@@ -37,7 +94,7 @@ jobs:
         ./build_snap.sh
         ./run_snap.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
 
-  newhttps_outside_sandbox:
+  newmono_newhttps_outside_sandbox:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
@@ -45,7 +102,7 @@ jobs:
       run: |
         ./build_and_run.sh https://httpvshttps.com/
 
-  newhttps_inside_snap:
+  newmono_newhttps_inside_snap:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
