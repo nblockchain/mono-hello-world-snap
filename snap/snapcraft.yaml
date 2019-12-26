@@ -17,7 +17,7 @@ layout:
 
 apps:
   hello:
-    command: sh $SNAP/usr/bin/mono-wrapper $SNAP/usr/bin/mono --trace $SNAP/usr/lib/hello/hello-world.exe
+    command: sh $SNAP/usr/bin/mono-wrapper $SNAP/usr/bin/mono --trace=Mono.Security,N:System.Security.Cryptography.X509Certificates,-T:Mono.Security.ASN1 $SNAP/usr/lib/hello/hello-world.exe
     plugs: [network]
 
 parts:
@@ -38,5 +38,5 @@ parts:
   wrapper:
     plugin: dump
     source: .
-    organize:
-      mono-wrapper: usr/bin/mono-wrapper
+#    organize:
+#      mono-wrapper: usr/bin/mono-wrapper

@@ -44,9 +44,12 @@ let filter (line: string): Option<string> =
             line
 
     let removedData = removeImmediateData line
-    if removedData.Contains "] " then
-        removedData.Substring(removedData.IndexOf("] ") + 2) |> Some
+    if removedData.Contains "ASN1" then
+        None
     else
-        Some removedData
+        if removedData.Contains "] " then
+            removedData.Substring(removedData.IndexOf("] ") + 2) |> Some
+        else
+            Some removedData
 
 Misc.ApplyLineChangesOverTextFile file toFile filter
