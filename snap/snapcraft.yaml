@@ -11,6 +11,10 @@ description: |
 grade: devel # must be 'stable' to release into candidate/stable channels
 confinement: strict
 
+layout:
+  /usr/share/.mono:
+    symlink: $SNAP/etc/mono/certstore
+
 apps:
   hello:
     command: sh $SNAP/usr/bin/mono-wrapper $SNAP/usr/bin/mono $SNAP/usr/lib/hello/hello-world.exe
@@ -27,6 +31,12 @@ parts:
       - cli-common-dev
       - mono-devel
     plugin: make
+
+  certs:
+    plugin: dump
+    source: /etc/mono
+    organize:
+      certstore: etc/mono/certstore
 
   wrapper:
     plugin: dump
