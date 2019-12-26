@@ -18,7 +18,8 @@ jobs:
         snap --version
         snapcraft --version
 
-        snapcraft
+        snapcraft --destructive-mode
+
         sudo snap install --dangerous hello_0.1_amd64.snap
         mono stage/usr/lib/hello/hello-world.exe
         snap run hello
