@@ -11,7 +11,7 @@ jobs:
       run: |
         sudo apt install -y fsharp
         git submodule update --init
-        ./downgradeMono.fsx
+        #./downgradeMono.fsx
 
         sudo apt install -y snapd
         sudo snap install --classic snapcraft
