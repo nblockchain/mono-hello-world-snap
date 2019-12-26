@@ -3,10 +3,36 @@ name: ubuntu
 on: [push]
 
 jobs:
-  ubuntu_build_and_test:
+  http_outside_sandbox:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
-    - name: Build and test snap
+    - name: HTTP
       run: |
-        ./ci.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+        ./build_and_run.sh http://httpvshttps.com/
+
+  http_inside_snap:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: HTTP_SNAP
+      run: |
+        ./build_snap.sh
+        ./run_snap.sh http://httpvshttps.com/
+
+  https_outside_sandbox:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: HTTPS
+      run: |
+        ./build_and_run.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+
+  https_inside_snap:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: HTTPS_SNAP
+      run: |
+        ./build_snap.sh
+        ./run_snap.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
