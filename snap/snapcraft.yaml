@@ -14,6 +14,8 @@ confinement: strict
 layout:
   /etc/ssl/certs:
     bind: $SNAP/etc/ssl/certs
+  /usr/share/.mono:
+    symlink: $SNAP/etc/mono/certstore
 
 apps:
   hello:
@@ -34,6 +36,12 @@ parts:
       - mono-devel
     plugin: make
     source: .
+
+  certs:
+    plugin: dump
+    source: /etc/mono
+    organize:
+      certstore: etc/mono/certstore
 
   wrapper:
     plugin: dump
