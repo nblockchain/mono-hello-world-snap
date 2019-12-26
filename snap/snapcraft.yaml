@@ -31,6 +31,7 @@ parts:
       - cli-common-dev
       - mono-devel
     plugin: make
+    source: .
 
   certs:
     plugin: dump
