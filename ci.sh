@@ -1,17 +1,8 @@
 #!/usr/bin/env bash
 set -euxo pipefail
 
-sudo apt install -y snapd
-sudo snap install --classic snapcraft
+./build_snap.sh
 
-# workaround for latest version of snapcraft to work on GithubActions/AzureDevOps
-sudo chown root:root /
+./build_and_run.sh $1
 
-snap --version
-snapcraft --version
-
-snapcraft --destructive-mode
-
-sudo snap install --dangerous monocurl_0.1_amd64.snap
-mono stage/usr/lib/monocurl/monocurl.exe $1
-snap run monocurl $1
+./run_snap.sh $1
