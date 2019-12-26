@@ -20,19 +20,36 @@ jobs:
         ./build_snap.sh
         ./run_snap.sh http://httpvshttps.com/
 
-  https_outside_sandbox:
+  oldhttps_outside_sandbox:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
-    - name: HTTPS
+    - name: oldHTTPS
       run: |
         ./build_and_run.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
 
-  https_inside_snap:
+  oldhttps_inside_snap:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
-    - name: HTTPS_SNAP
+    - name: oldHTTPS_SNAP
       run: |
         ./build_snap.sh
         ./run_snap.sh https://raw.githubusercontent.com/knocte/geewallet/master/LICENCE.txt
+
+  newhttps_outside_sandbox:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: newHTTPS
+      run: |
+        ./build_and_run.sh https://httpvshttps.com/
+
+  newhttps_inside_snap:
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v1
+    - name: newHTTPS_SNAP
+      run: |
+        ./build_snap.sh
+        ./run_snap.sh https://httpvshttps.com/
