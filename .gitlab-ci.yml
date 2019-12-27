@@ -1,0 +1,19 @@
+before_script:
+  - apt update
+
+stages:
+  - build_and_test
+
+stockmono:
+  image: ubuntu:18.04
+  stage: build_and_test
+  script:
+    -  apt install -y sudo
+    - ./install_snapcraft.sh
+    - ./build_snap.sh
+
+  artifacts:
+    paths:
+      - monocurl*.snap
+    expire_in: 50days
+
