@@ -1,5 +1,6 @@
 before_script:
   - apt update
+  - DEBIAN_FRONTEND=noninteractive apt install -y mono-runtime-common
 
 stages:
   - build_and_test
